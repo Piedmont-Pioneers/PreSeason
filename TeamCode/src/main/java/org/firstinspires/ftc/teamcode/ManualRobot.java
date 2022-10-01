@@ -28,7 +28,7 @@ public class ManualRobot {
 
     public void update() {
         for (SubSystem sub : subSystems) {
-            sub.runOnce();
+            sub.update();
         }
     }
 }
