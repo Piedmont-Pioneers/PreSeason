@@ -33,7 +33,7 @@ public class Drive implements SubSystem {
         rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
     }
 
-    public void runOnce() {
+    public void update() {
 
         // POV Mode uses left joystick to go forward & strafe, and right joystick to rotate.
         double axial = -config.gamePad1.left_stick_y;  // Note: pushing stick forward gives negative value
