@@ -11,7 +11,7 @@ public class MeepMeepTesting {
     public static void main(String[] args) {
         MeepMeep meepMeep = new MeepMeep(800);
 
-        RoadRunnerBotEntity myBot = parkInTerminalBlue(meepMeep);
+        RoadRunnerBotEntity myBot = parkInSubstationBlue(meepMeep);
 
         meepMeep.setBackground(MeepMeep.Background.FIELD_POWERPLAY_KAI_DARK)
                 .setDarkMode(true)
@@ -44,4 +44,29 @@ public class MeepMeepTesting {
                                 .build()
                 );
     }
+
+    public static RoadRunnerBotEntity parkInSubstationRed(MeepMeep meepMeep) {
+        return new DefaultBotBuilder(meepMeep)
+                // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
+                .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
+                .followTrajectorySequence(drive ->
+                        drive.trajectorySequenceBuilder(new Pose2d(-34, -60, Math.toRadians(90)))
+                                .strafeRight(35)
+                                .build()
+                );
+    }
+
+    public static RoadRunnerBotEntity parkInSubstationBlue(MeepMeep meepMeep) {
+        return new DefaultBotBuilder(meepMeep)
+                .setColorScheme(new ColorSchemeBlueLight())
+                // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
+                .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
+                .followTrajectorySequence(drive ->
+                        drive.trajectorySequenceBuilder(new Pose2d(-34, 60, Math.toRadians(-90)))
+                                .strafeLeft(35)
+                                .build()
+                );
+    }
+
+
 }
