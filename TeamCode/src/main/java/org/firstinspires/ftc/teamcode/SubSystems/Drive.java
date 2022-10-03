@@ -40,14 +40,14 @@ public class Drive implements SubSystem {
         double lateral = config.gamePad1.left_stick_x;
         double yaw = config.gamePad1.right_stick_x;
         // Take the average of the 2 triggers
-        double speed = (config.gamePad1.right_trigger + config.gamePad1.left_trigger) / 2;
+        double speed = 1 - (config.gamePad1.right_trigger + config.gamePad1.left_trigger) / 2;
 
         // Combine the joystick requests for each axis-motion to determine each wheel's power.
         // Set up a variable for each drive wheel to save the power level for telemetry.
-        double leftFrontPower = (axial + lateral + yaw) * (1 - speed);
-        double rightFrontPower = (axial - lateral - yaw) * (1 - speed);
-        double leftBackPower = (axial - lateral + yaw) * (1 - speed);
-        double rightBackPower = (axial + lateral - yaw) * (1 - speed);
+        double leftFrontPower = (axial + lateral + yaw) * speed;
+        double rightFrontPower = (axial - lateral - yaw) * speed;
+        double leftBackPower = (axial - lateral + yaw) * speed;
+        double rightBackPower = (axial + lateral - yaw) * speed;
 
         // Normalize the values so no wheel power exceeds 100%
         // This ensures that the robot maintains the desired motion.
