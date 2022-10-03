@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.ManualRobot;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
-@TeleOp(name = "Simple Auto", group = "Autos")
+@TeleOp(name = "ParkInRedSubstation", group = "Autos")
 public class ParkInSubstationRed extends LinearOpMode {
     public void runOpMode() {
         Config config;

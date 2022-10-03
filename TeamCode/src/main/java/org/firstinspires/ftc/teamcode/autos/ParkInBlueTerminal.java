@@ -9,8 +9,8 @@ import org.firstinspires.ftc.teamcode.ManualRobot;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
-@TeleOp(name = "ParkInBlueSubstation", group = "Autos")
-public class ParkInSubstationBlue extends LinearOpMode {
+@TeleOp(name = "ParkInBlueTerminal", group = "Autos")
+public class ParkInBlueTerminal extends LinearOpMode {
     public void runOpMode() {
         Config config;
         config = new Config(telemetry, hardwareMap, gamepad1, gamepad2);
@@ -20,7 +20,7 @@ public class ParkInSubstationBlue extends LinearOpMode {
         waitForStart();
 
         TrajectorySequence trajectory = drive.trajectorySequenceBuilder(new Pose2d())
-                .strafeLeft(35)
+                .strafeLeft(20)
                 .build();
 
 
