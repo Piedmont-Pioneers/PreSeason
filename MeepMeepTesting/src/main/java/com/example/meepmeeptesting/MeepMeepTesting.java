@@ -25,7 +25,7 @@ public class MeepMeepTesting {
     public static RoadRunnerBotEntity parkInTerminalRed(MeepMeep meepMeep) {
         return new DefaultBotBuilder(meepMeep)
                 // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
-                .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
+                .setConstraints(19.536997917000335, 19.536997917000335, Math.toRadians(67.84166818181818), Math.toRadians(67.84166818181818), 16.5)
                 .followTrajectorySequence(drive ->
                         drive.trajectorySequenceBuilder(new Pose2d(-60, -34, 0))
                                 .strafeRight(20)
@@ -37,7 +37,7 @@ public class MeepMeepTesting {
         return new DefaultBotBuilder(meepMeep)
                 .setColorScheme(new ColorSchemeBlueLight())
                 // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
-                .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
+                .setConstraints(19.536997917000335, 19.536997917000335, Math.toRadians(67.84166818181818), Math.toRadians(67.84166818181818), 16.5)
                 .followTrajectorySequence(drive ->
                         drive.trajectorySequenceBuilder(new Pose2d(-60, 34, 0))
                                 .strafeLeft(20)
@@ -48,7 +48,7 @@ public class MeepMeepTesting {
     public static RoadRunnerBotEntity parkInSubstationRed(MeepMeep meepMeep) {
         return new DefaultBotBuilder(meepMeep)
                 // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
-                .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
+                .setConstraints(19.536997917000335, 19.536997917000335, Math.toRadians(67.84166818181818), Math.toRadians(67.84166818181818), 16.5)
                 .followTrajectorySequence(drive ->
                         drive.trajectorySequenceBuilder(new Pose2d(-34, -60, Math.toRadians(90)))
                                 .strafeRight(35)
@@ -60,7 +60,7 @@ public class MeepMeepTesting {
         return new DefaultBotBuilder(meepMeep)
                 .setColorScheme(new ColorSchemeBlueLight())
                 // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
-                .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
+                .setConstraints(19.536997917000335, 19.536997917000335, Math.toRadians(67.84166818181818), Math.toRadians(67.84166818181818), 16.5)
                 .followTrajectorySequence(drive ->
                         drive.trajectorySequenceBuilder(new Pose2d(-34, 60, Math.toRadians(-90)))
                                 .strafeLeft(35)
