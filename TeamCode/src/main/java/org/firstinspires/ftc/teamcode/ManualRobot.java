@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import org.firstinspires.ftc.teamcode.SubSystems.Arm;
 import org.firstinspires.ftc.teamcode.SubSystems.Drive;
 import org.firstinspires.ftc.teamcode.SubSystems.SubSystem;
 
@@ -7,6 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ManualRobot {
+
+    public Arm arm;
 
     // Config class to all hardware controls
     Config config;
@@ -16,7 +19,9 @@ public class ManualRobot {
     public ManualRobot(Config cfg) {
         config = cfg;
         subSystems.add(new Drive(config));
-//        subSystems.add(new DualFront(config));
+
+        arm = new Arm(config);
+        subSystems.add(arm);
     }
 
     //

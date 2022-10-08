@@ -19,10 +19,7 @@ public class Config {
     public static final String leftFrontDrive = "leftFrontDrive";
     public static final String leftBackDrive = "leftBackDrive";
 
-    public static final String rightFrontTest = "rightFrontTest";
-    public static final String leftFrontTest = "leftFrontTest";
-
-    //public static final String carouselMotor = "eyeballmotor";
+    //public static final String armMotor = "armMotor";
 
     private ElapsedTime runtime = new ElapsedTime();
 

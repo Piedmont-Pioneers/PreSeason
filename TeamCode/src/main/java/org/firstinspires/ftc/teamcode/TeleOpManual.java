@@ -26,6 +26,16 @@ public class TeleOpManual extends LinearOpMode {
 
             // Show the elapsed game time and wheel power.
             telemetry.update();
+
+            if (gamepad2.a) {
+                manualRobot.arm.move(1);
+            }
+            else if(gamepad2.b) {
+                manualRobot.arm.move(-1);
+            }
+            else {
+                manualRobot.arm.move(0);
+            }
         }
     }
 }
