@@ -13,21 +13,21 @@ public class Arm implements SubSystem {
         this.config = cfg;
     }
 
-    int power = 0;
-
     @Override
     public void init() {
-        //armMotor = config.hardwareMap.get(DcMotor.class, Config.  )
+        armMotor = config.hardwareMap.get(DcMotor.class, Config.armMotor);
     }
 
     public void update() {
-        armMotor.setPower(power);
+
+        if (config.gamePad2.a) {
+            armMotor.setPower(1);
+        }
+        else if(config.gamePad2.b) {
+            armMotor.setPower(-11);
+        }
+        else {
+            armMotor.setPower(0);
+        }
     }
-
-    public void move(int p) {
-        power = p;
-    }
-
-
-
 }

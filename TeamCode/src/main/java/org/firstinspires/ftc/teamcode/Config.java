@@ -19,7 +19,7 @@ public class Config {
     public static final String leftFrontDrive = "leftFrontDrive";
     public static final String leftBackDrive = "leftBackDrive";
 
-    //public static final String armMotor = "armMotor";
+    public static final String armMotor = "armMotor";
 
     private ElapsedTime runtime = new ElapsedTime();
 

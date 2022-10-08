@@ -8,9 +8,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ManualRobot {
-
-    public Arm arm;
-
     // Config class to all hardware controls
     Config config;
     List<SubSystem> subSystems = new LinkedList<SubSystem>();
@@ -19,9 +16,7 @@ public class ManualRobot {
     public ManualRobot(Config cfg) {
         config = cfg;
         subSystems.add(new Drive(config));
-
-        arm = new Arm(config);
-        subSystems.add(arm);
+        subSystems.add(new Arm(config));
     }
 
     //
