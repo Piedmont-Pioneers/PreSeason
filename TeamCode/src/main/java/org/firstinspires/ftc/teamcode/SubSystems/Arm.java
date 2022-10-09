@@ -23,7 +23,7 @@ public class Arm implements SubSystem {
         if (config.gamePad2.a) {
             armMotor.setPower(1);
         }
-        else if(config.gamePad2.b) {
+        else if(config.gamePad2.y) {
             armMotor.setPower(-11);
         }
         else {
