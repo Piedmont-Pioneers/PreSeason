@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class Arm implements SubSystem {
 
-    private Config config;
+    private final Config config;
     private DcMotor armMotor;
 
     public Arm(Config cfg){
