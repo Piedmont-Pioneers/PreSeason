@@ -12,22 +12,14 @@ import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 @TeleOp(name = "ParkInBlueTerminal", group = "Autos")
 public class ParkInBlueTerminal extends LinearOpMode {
     public void runOpMode() {
-        Config config;
-        config = new Config(telemetry, hardwareMap, gamepad1, gamepad2);
-        ManualRobot robot = new ManualRobot(config);
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
-        waitForStart();
-
-        TrajectorySequence trajectory = drive.trajectorySequenceBuilder(new Pose2d())
+        TrajectorySequence trajectory = drive.trajectorySequenceBuilder(new Pose2d(-60, -34, 0))
                 .strafeLeft(20)
                 .build();
 
+        waitForStart();
 
         drive.followTrajectorySequence(trajectory);
-
-        while (opModeIsActive()) {
-            robot.update();
-        }
     }
 }

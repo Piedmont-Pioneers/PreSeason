@@ -14,7 +14,6 @@ public class SimpleAuto extends LinearOpMode {
     public void runOpMode() {
         Config config;
         config = new Config(telemetry, hardwareMap, gamepad1, gamepad2);
-        ManualRobot robot = new ManualRobot(config);
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
         waitForStart();
@@ -32,9 +31,5 @@ public class SimpleAuto extends LinearOpMode {
 
 
         drive.followTrajectorySequence(trajectory);
-
-        while (opModeIsActive()) {
-            robot.update();
-        }
     }
 }
