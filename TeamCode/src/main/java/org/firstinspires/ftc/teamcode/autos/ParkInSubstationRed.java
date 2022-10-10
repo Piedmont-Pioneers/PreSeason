@@ -18,5 +18,9 @@ public class ParkInSubstationRed extends LinearOpMode {
         waitForStart();
 
         drive.followTrajectorySequence(trajectory);
+
+        while (drive.isBusy()) {
+            sleep(1);
+        }
     }
 }

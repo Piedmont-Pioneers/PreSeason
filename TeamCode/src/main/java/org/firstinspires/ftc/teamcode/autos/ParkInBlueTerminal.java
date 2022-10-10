@@ -19,7 +19,8 @@ public class ParkInBlueTerminal extends LinearOpMode {
 
         drive.followTrajectorySequence(trajectory);
 
-        while (opModeIsActive())
-            drive.update();
+        while (drive.isBusy()) {
+            sleep(1);
+        }
     }
 }
