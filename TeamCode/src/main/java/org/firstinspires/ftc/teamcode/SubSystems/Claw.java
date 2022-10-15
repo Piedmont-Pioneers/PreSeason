@@ -21,10 +21,10 @@ public class Claw implements SubSystem {
 
     @Override
     public void update() {
-        if (config.gamePad1.left_bumper) {
+        if (config.gamePad2.left_bumper) {
             // TODO: MAKE CLAW CLOSE
             clawServo.setPosition(1);
-        } else if (config.gamePad1.right_bumper) {
+        } else if (config.gamePad2.right_bumper) {
             // TODO: MAKE CLAW OPEN
             clawServo.setPosition(0);
         }
