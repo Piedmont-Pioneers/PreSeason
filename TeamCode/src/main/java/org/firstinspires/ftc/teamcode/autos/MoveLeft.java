@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.Config;
 
-@Autonomous(name = "ParkInBlueTerminal", group = "Autos")
+@Autonomous(name = "MoveLeft", group = "Autos")
 public class MoveLeft extends LinearOpMode {
     public void runOpMode() {
         Config config = new Config(telemetry, hardwareMap, gamepad1, gamepad2);
@@ -14,6 +14,11 @@ public class MoveLeft extends LinearOpMode {
         DcMotor rightFrontDrive = config.hardwareMap.get(DcMotor.class, Config.rightFrontDrive);
         DcMotor leftBackDrive = config.hardwareMap.get(DcMotor.class, Config.leftBackDrive);
         DcMotor rightBackDrive = config.hardwareMap.get(DcMotor.class, Config.rightBackDrive);
+
+        leftFrontDrive.setDirection(DcMotor.Direction.REVERSE);
+        leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
+        rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
 
         waitForStart();
 
