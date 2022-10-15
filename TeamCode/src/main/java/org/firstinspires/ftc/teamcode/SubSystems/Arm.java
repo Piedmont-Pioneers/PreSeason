@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.SubSystems;
 import org.firstinspires.ftc.teamcode.Config;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 public class Arm implements SubSystem {
 
@@ -17,20 +18,18 @@ public class Arm implements SubSystem {
     public void init() {
         armMotor = config.hardwareMap.get(DcMotor.class, Config.armMotor);
         // Reset the encoder and set it to be in RUN_TO_POSITION
-        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        armMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        armMotor.setDirection(DcMotor.Direction.FORWARD);
     }
 
     public void update() {
-
         if (config.gamePad2.a) {
-            armMotor.setTargetPosition(1000);
-        } else if (config.gamePad2.x) {
-            armMotor.setTargetPosition(750);
-        } else if (config.gamePad2.b) {
-            armMotor.setTargetPosition(250);
-        } else if(config.gamePad2.y) {
-            armMotor.setTargetPosition(0);
+            armMotor.setPower(1);
+        }
+        else if (config.gamePad2.b) {
+            armMotor.setPower(-1);
+        }
+        else {
+            armMotor.setPower(0);
         }
     }
 }
