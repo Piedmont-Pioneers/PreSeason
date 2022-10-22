@@ -2,16 +2,18 @@ package com.example.meepmeeptesting;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.noahbres.meepmeep.MeepMeep;
+import com.noahbres.meepmeep.core.colorscheme.ColorScheme;
 import com.noahbres.meepmeep.core.colorscheme.scheme.ColorSchemeBlueDark;
 import com.noahbres.meepmeep.core.colorscheme.scheme.ColorSchemeBlueLight;
 import com.noahbres.meepmeep.roadrunner.DefaultBotBuilder;
 import com.noahbres.meepmeep.roadrunner.entity.RoadRunnerBotEntity;
+import com.noahbres.meepmeep.roadrunner.trajectorysequence.TrajectorySequence;
 
 public class MeepMeepTesting {
     public static void main(String[] args) {
         MeepMeep meepMeep = new MeepMeep(800);
 
-        RoadRunnerBotEntity myBot = parkInSubstationRed(meepMeep);
+        RoadRunnerBotEntity myBot = autoBlue(meepMeep);
 
         meepMeep.setBackground(MeepMeep.Background.FIELD_POWERPLAY_KAI_DARK)
                 .setDarkMode(true)
@@ -68,5 +70,26 @@ public class MeepMeepTesting {
                 );
     }
 
-
+    public static RoadRunnerBotEntity autoBlue(MeepMeep meepMeep) {
+        return new DefaultBotBuilder(meepMeep)
+                .setColorScheme(new ColorSchemeBlueLight())
+                .followTrajectorySequence(drive ->
+                        drive.trajectorySequenceBuilder(new Pose2d(-34, 56, Math.toRadians(270)))
+                                .addDisplacementMarker(() -> {
+                                    // Move arm motor
+                                })
+                                .strafeLeft(20)
+                                .forward(19)
+                                .strafeRight(9)
+                                .forward(3)
+                                .addDisplacementMarker(() -> {
+                                    // Release Cone
+                                })
+                                .back(3)
+                                .strafeLeft(9)
+                                .back(23)
+                                .strafeLeft(10)
+                                .build()
+                );
+    }
 }
