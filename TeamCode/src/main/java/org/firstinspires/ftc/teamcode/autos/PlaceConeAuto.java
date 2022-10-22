@@ -22,14 +22,15 @@ public class PlaceConeAuto extends LinearOpMode {
         Servo claw = hardwareMap.get(Servo.class, Config.CLAW_SERVO);
 
         claw.scaleRange(0, 1);
-        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        armMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         TrajectorySequence trajectory =
                 drive.trajectorySequenceBuilder(new Pose2d(-34, 56, Math.toRadians(270)))
                         // Move arm up
                         .addDisplacementMarker(() -> {
-                            armMotor.setTargetPosition(100);
+                            armMotor.setPower(1);
+                        })
+                        .addTemporalMarker(4, () -> {
+                            armMotor.setPower(0);
                         })
                         // Move to junction
                         .strafeLeft(20)
