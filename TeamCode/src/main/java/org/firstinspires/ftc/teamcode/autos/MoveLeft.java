@@ -10,10 +10,10 @@ import org.firstinspires.ftc.teamcode.Config;
 public class MoveLeft extends LinearOpMode {
     public void runOpMode() {
         Config config = new Config(telemetry, hardwareMap, gamepad1, gamepad2);
-        DcMotor leftFrontDrive = config.hardwareMap.get(DcMotor.class, Config.leftFrontDrive);
-        DcMotor rightFrontDrive = config.hardwareMap.get(DcMotor.class, Config.rightFrontDrive);
-        DcMotor leftBackDrive = config.hardwareMap.get(DcMotor.class, Config.leftBackDrive);
-        DcMotor rightBackDrive = config.hardwareMap.get(DcMotor.class, Config.rightBackDrive);
+        DcMotor leftFrontDrive = config.hardwareMap.get(DcMotor.class, Config.LEFT_FRONT_DRIVE);
+        DcMotor rightFrontDrive = config.hardwareMap.get(DcMotor.class, Config.RIGHT_FRONT_DRIVE);
+        DcMotor leftBackDrive = config.hardwareMap.get(DcMotor.class, Config.LEFT_BACK_DRIVE);
+        DcMotor rightBackDrive = config.hardwareMap.get(DcMotor.class, Config.RIGHT_BACK_DRIVE);
 
         leftFrontDrive.setDirection(DcMotor.Direction.REVERSE);
         leftBackDrive.setDirection(DcMotor.Direction.REVERSE);

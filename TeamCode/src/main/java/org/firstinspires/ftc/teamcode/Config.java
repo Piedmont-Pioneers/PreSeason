@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -14,14 +13,14 @@ public class Config {
     public Gamepad gamePad2 = null;
 
     // Drive system
-    public static final String rightFrontDrive = "rightFrontDrive";
-    public static final String rightBackDrive = "rightBackDrive";
-    public static final String leftFrontDrive = "leftFrontDrive";
-    public static final String leftBackDrive = "leftBackDrive";
+    public static final String RIGHT_FRONT_DRIVE = "rightFrontDrive";
+    public static final String RIGHT_BACK_DRIVE = "rightBackDrive";
+    public static final String LEFT_FRONT_DRIVE = "leftFrontDrive";
+    public static final String LEFT_BACK_DRIVE = "leftBackDrive";
 
-    public static final String armMotor = "armMotor";
+    public static final String ARM_MOTOR = "armMotor";
 
-    public static final String clawServo = "clawServo";
+    public static final String CLAW_SERVO = "clawServo";
 
     private ElapsedTime runtime = new ElapsedTime();
 

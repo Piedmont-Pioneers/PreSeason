@@ -15,7 +15,7 @@ public class Claw implements SubSystem {
 
     @Override
     public void init() {
-        clawServo = config.hardwareMap.get(Servo.class, Config.clawServo);
+        clawServo = config.hardwareMap.get(Servo.class, Config.CLAW_SERVO);
         clawServo.scaleRange(0, 1);
     }
 
