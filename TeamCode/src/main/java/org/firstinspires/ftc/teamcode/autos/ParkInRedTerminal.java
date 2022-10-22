@@ -19,8 +19,6 @@ public class ParkInRedTerminal extends LinearOpMode {
 
         drive.followTrajectorySequence(trajectory);
 
-        while (drive.isBusy()) {
-            sleep(1);
-        }
+
     }
 }
