@@ -74,19 +74,19 @@ public class MeepMeepTesting {
         return new DefaultBotBuilder(meepMeep)
                 .setColorScheme(new ColorSchemeBlueLight())
                 .followTrajectorySequence(drive ->
-                        drive.trajectorySequenceBuilder(new Pose2d(-34, 56, Math.toRadians(270)))
+                        drive.trajectorySequenceBuilder(new Pose2d(-34, 60, Math.toRadians(270)))
                                 .addDisplacementMarker(() -> {
                                     // Move arm motor
                                 })
-                                .strafeLeft(20)
-                                .forward(19)
-                                .strafeRight(9)
-                                .forward(3)
+                                .strafeLeft(21)
+                                .forward(23)
+                                .strafeRight(10)
+                                .forward(8)
                                 .addDisplacementMarker(() -> {
                                     // Release Cone
                                 })
-                                .back(3)
-                                .strafeLeft(9)
+                                .back(8)
+                                .strafeLeft(10)
                                 .back(23)
                                 .strafeLeft(10)
                                 .build()
