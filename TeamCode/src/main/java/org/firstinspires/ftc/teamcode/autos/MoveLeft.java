@@ -23,9 +23,9 @@ public class MoveLeft extends LinearOpMode {
         waitForStart();
 
         leftFrontDrive.setPower(-1);
-        rightFrontDrive.setPower(-1);
+        rightFrontDrive.setPower(1);
         leftBackDrive.setPower(1);
-        rightBackDrive.setPower(1);
+        rightBackDrive.setPower(-1);
 
         sleep(1000);
 

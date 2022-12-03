@@ -13,7 +13,7 @@ public class MeepMeepTesting {
     public static void main(String[] args) {
         MeepMeep meepMeep = new MeepMeep(800);
 
-        RoadRunnerBotEntity myBot = autoBlue(meepMeep);
+        RoadRunnerBotEntity myBot = parkInSubstationBlue(meepMeep);
 
         meepMeep.setBackground(MeepMeep.Background.FIELD_POWERPLAY_KAI_DARK)
                 .setDarkMode(true)

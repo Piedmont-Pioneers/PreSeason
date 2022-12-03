@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.SubSystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.Config;
 
@@ -27,10 +28,10 @@ public class Drive implements SubSystem {
         // Most robots need the motors on one side to be reversed to drive forward.
         // When you first test your robot, push the left joystick forward
         // and flip the direction ( FORWARD <-> REVERSE ) of any wheel that runs backwards
-        leftFrontDrive.setDirection(DcMotor.Direction.REVERSE);
-        leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
+        leftFrontDrive.setDirection(DcMotor.Direction.REVERSE); // DO NOT CHANGE
+        leftBackDrive.setDirection(DcMotor.Direction.REVERSE); // DO NOT CHANGE
+        rightFrontDrive.setDirection(DcMotor.Direction.FORWARD); // DO NOT CHANGE
+        rightBackDrive.setDirection(DcMotor.Direction.FORWARD); // DO NOT CHANGE
     }
 
     public void update() {
@@ -44,10 +45,10 @@ public class Drive implements SubSystem {
 
         // Combine the joystick requests for each axis-motion to determine each wheel's power.
         // Set up a variable for each drive wheel to save the power level for telemetry.
-        double leftFrontPower = (axial + lateral + yaw) * speed;
-        double rightFrontPower = (axial + lateral - yaw) * speed;
-        double leftBackPower = (axial - lateral + yaw) * speed;
-        double rightBackPower = (axial - lateral - yaw) * speed;
+        double leftFrontPower = (axial + lateral - yaw) * speed; // DO NOT CHANGE
+        double rightFrontPower = (axial - lateral - yaw) * speed; // DO NOT CHANGE
+        double leftBackPower = (axial - lateral + yaw) * speed; // DO NOT CHANGE
+        double rightBackPower = (axial + lateral + yaw) * speed; // DO NOT CHANGE
 
         // Normalize the values so no wheel power exceeds 100%
         // This ensures that the robot maintains the desired motion.
@@ -63,7 +64,7 @@ public class Drive implements SubSystem {
             rightBackPower /= max;
         }
 
-        // Send calculated power to wheels
+        // Send calculated power to wheels`
         leftFrontDrive.setPower(leftFrontPower);
         rightFrontDrive.setPower(rightFrontPower);
         leftBackDrive.setPower(leftBackPower);
