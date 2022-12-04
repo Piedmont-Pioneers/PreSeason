@@ -21,10 +21,10 @@ public class Arm implements SubSystem {
     }
 
     public void update() {
-        if (config.gamePad1.x) {
+        if (config.gamePad2.x) {
             armMotor.setPower(1);
         }
-        else if (config.gamePad1.y) {
+        else if (config.gamePad2.y) {
             armMotor.setPower(-1);
         }
         else {
