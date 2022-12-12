@@ -13,7 +13,7 @@ public class MeepMeepTesting {
     public static void main(String[] args) {
         MeepMeep meepMeep = new MeepMeep(800);
 
-        RoadRunnerBotEntity myBot = autoBlue(meepMeep);
+        RoadRunnerBotEntity myBot = coneCycleAutoBlue(meepMeep);
 
         meepMeep.setBackground(MeepMeep.Background.FIELD_POWERPLAY_KAI_DARK)
                 .setDarkMode(true)
@@ -70,25 +70,30 @@ public class MeepMeepTesting {
                 );
     }
 
-    public static RoadRunnerBotEntity autoBlue(MeepMeep meepMeep) {
+    public static RoadRunnerBotEntity coneCycleAutoBlue(MeepMeep meepMeep) {
         return new DefaultBotBuilder(meepMeep)
                 .setColorScheme(new ColorSchemeBlueLight())
                 .followTrajectorySequence(drive ->
                         drive.trajectorySequenceBuilder(new Pose2d(-34, 60, Math.toRadians(270)))
                                 .addDisplacementMarker(() -> {
-                                    // Move arm motor
+                                    // TODO: Move arm to position
                                 })
-                                .strafeLeft(21)
-                                .forward(23)
-                                .strafeRight(10)
-                                .forward(8)
+                                .forward(48)
+                                .turn(Math.toRadians(-90))
+                                // TODO: LOOP THIS PART
+                                .forward(25)
                                 .addDisplacementMarker(() -> {
-                                    // Release Cone
+                                    // TODO: Grab Cone
+                                    // TODO: Lift arm to position to deposit cone
                                 })
-                                .back(8)
-                                .strafeLeft(10)
-                                .back(23)
-                                .strafeLeft(10)
+                                .back(25)
+                                .strafeRight(11)
+                                .forward(5)
+                                .addDisplacementMarker(() -> {
+                                    // TODO: Drop Cone
+                                })
+                                .back(5)
+                                .strafeLeft(11)
                                 .build()
                 );
     }
