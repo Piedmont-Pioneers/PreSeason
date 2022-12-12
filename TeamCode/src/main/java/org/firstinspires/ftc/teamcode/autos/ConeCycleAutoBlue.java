@@ -10,6 +10,8 @@ import org.firstinspires.ftc.teamcode.Config;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 @Autonomous(name = "ConeCycleAutoBlue", group = "Autos")
 public class ConeCycleAutoBlue extends LinearOpMode {
 
@@ -21,11 +23,19 @@ public class ConeCycleAutoBlue extends LinearOpMode {
         DcMotor armMotor = hardwareMap.get(DcMotor.class, Config.ARM_MOTOR);
         Servo claw = hardwareMap.get(Servo.class, Config.CLAW_SERVO);
 
+        final double circumference = 0.9875 * Math.PI;
+
+        AtomicInteger conesLeftInStack = new AtomicInteger(5);
+
         claw.scaleRange(0, 1);
 
         TrajectorySequence getIntoStartingPos = drive.trajectorySequenceBuilder(new Pose2d(0D, 0D, 0))
                 .addDisplacementMarker(() -> {
-                    // TODO: Move arm to position
+                    // FIXME TEST ARM POSITION
+                    double height = 18;
+                    double rotations = circumference/height;
+                    armMotor.setTargetPosition((int) (rotations * 1425.1));
+                    armMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 })
                 .forward(48)
                 .turn(Math.toRadians(-90))
@@ -36,7 +46,12 @@ public class ConeCycleAutoBlue extends LinearOpMode {
                 .addDisplacementMarker(() -> {
                     // FIXME TEST: Grab Cone
                     claw.setPosition(0);
-                    // TODO: Lift arm to position to deposit cone
+                    // FIXME TEST ARM MOVEMENT
+                    double height = 16;
+                    double rotations = circumference/height;
+                    armMotor.setTargetPosition((int) (rotations * 1425.1));
+                    // Set armMotor to Run To Position
+                    armMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 })
                 .back(25)
                 .strafeRight(11)
@@ -44,6 +59,11 @@ public class ConeCycleAutoBlue extends LinearOpMode {
                 .addDisplacementMarker(() -> {
                     // FIXME TEST: Drop Cone
                     claw.setPosition(1);
+                    // FIXME TEST ARM MOVEMENT
+                    double height = conesLeftInStack.get() * 5;
+                    double rotations = circumference/height;
+                    armMotor.setTargetPosition((int) (rotations * 1425.1));
+                    conesLeftInStack.addAndGet(-1);
                 })
                 .back(5)
                 .strafeLeft(11)
@@ -58,6 +78,8 @@ public class ConeCycleAutoBlue extends LinearOpMode {
         // LOOP
         while (opModeIsActive()) {
             drive.followTrajectorySequence(mainLoop);
+            // Increment cones left in stack down
+            conesLeftInStack.addAndGet(-1);
         }
     }
 
