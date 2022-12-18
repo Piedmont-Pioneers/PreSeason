@@ -42,6 +42,7 @@ public class ConeCycleAutoBlue extends LinearOpMode {
                 .build();
 
         TrajectorySequence mainLoop = drive.trajectorySequenceBuilder(new Pose2d(0, 0, 0))
+                // Get to cone stack
                 .forward(25)
                 .addDisplacementMarker(() -> {
                     // FIXME TEST: Grab Cone
@@ -53,6 +54,7 @@ public class ConeCycleAutoBlue extends LinearOpMode {
                     // Set armMotor to Run To Position
                     armMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 })
+                // Get to junction
                 .back(25)
                 .strafeRight(11)
                 .forward(5)
