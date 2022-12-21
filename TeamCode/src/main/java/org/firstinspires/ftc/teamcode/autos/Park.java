@@ -30,12 +30,11 @@ import org.openftc.apriltag.AprilTagDetection;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
-import org.openftc.easyopencv.OpenCvInternalCamera;
 
 import java.util.ArrayList;
 
 @TeleOp
-public class AprilTagAutonomousInitDetectionExample extends LinearOpMode {
+public class Park extends LinearOpMode {
     OpenCvCamera camera;
     AprilTagDetectionPipeline aprilTagDetectionPipeline;
 
