@@ -23,9 +23,12 @@ package org.firstinspires.ftc.teamcode.autos;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.Config;
 import org.firstinspires.ftc.teamcode.autos.apriltags.AprilTagDetectionPipeline;
+import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.openftc.apriltag.AprilTagDetection;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
@@ -37,6 +40,13 @@ import java.util.ArrayList;
 public class Park extends LinearOpMode {
     OpenCvCamera camera;
     AprilTagDetectionPipeline aprilTagDetectionPipeline;
+
+    // Setup motors
+    Config config = new Config(telemetry, hardwareMap, gamepad1, gamepad2);
+    DcMotor leftFrontDrive = config.hardwareMap.get(DcMotor.class, Config.LEFT_FRONT_DRIVE);
+    DcMotor rightFrontDrive = config.hardwareMap.get(DcMotor.class, Config.RIGHT_FRONT_DRIVE);
+    DcMotor leftBackDrive = config.hardwareMap.get(DcMotor.class, Config.LEFT_BACK_DRIVE);
+    DcMotor rightBackDrive = config.hardwareMap.get(DcMotor.class, Config.RIGHT_BACK_DRIVE);
 
     static final double FEET_PER_METER = 3.28084;
 
@@ -169,12 +179,18 @@ public class Park extends LinearOpMode {
         /* Actually do something useful */
         if(tagOfInterest == null){
             //default trajectory here if preferred
+            moveLeft();
         }else if(tagOfInterest.id == LEFT){
             //left trajectory
+            moveForward();
+            moveLeft();
         }else if(tagOfInterest.id == MIDDLE){
             //middle trajectory
+            moveForward();
         }else{
             //right trajectory
+            moveForward();
+            moveRight();
         }
 
         // TODO: REMOVE THIS
@@ -191,5 +207,48 @@ public class Park extends LinearOpMode {
         telemetry.addLine(String.format("Rotation Yaw: %.2f degrees", Math.toDegrees(detection.pose.yaw)));
         telemetry.addLine(String.format("Rotation Pitch: %.2f degrees", Math.toDegrees(detection.pose.pitch)));
         telemetry.addLine(String.format("Rotation Roll: %.2f degrees", Math.toDegrees(detection.pose.roll)));
+    }
+
+
+    private void moveLeft() {
+        leftFrontDrive.setPower(-1);
+        rightFrontDrive.setPower(1);
+        leftBackDrive.setPower(1);
+        rightBackDrive.setPower(-1);
+
+        sleep(1000);
+
+        leftFrontDrive.setPower(0);
+        rightFrontDrive.setPower(0);
+        leftBackDrive.setPower(0);
+        rightBackDrive.setPower(0);
+    }
+
+    private void moveRight() {
+        leftFrontDrive.setPower(1);
+        rightFrontDrive.setPower(-1);
+        leftBackDrive.setPower(-1);
+        rightBackDrive.setPower(1);
+
+        sleep(1000);
+
+        leftFrontDrive.setPower(0);
+        rightFrontDrive.setPower(0);
+        leftBackDrive.setPower(0);
+        rightBackDrive.setPower(0);
+    }
+
+    private void moveForward() {
+        leftFrontDrive.setPower(1);
+        rightFrontDrive.setPower(1);
+        leftBackDrive.setPower(1);
+        rightBackDrive.setPower(1);
+
+        sleep(1000);
+
+        leftFrontDrive.setPower(0);
+        rightFrontDrive.setPower(0);
+        leftBackDrive.setPower(0);
+        rightBackDrive.setPower(0);
     }
 }
