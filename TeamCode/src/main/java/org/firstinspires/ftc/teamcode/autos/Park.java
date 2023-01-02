@@ -21,6 +21,7 @@
 
 package org.firstinspires.ftc.teamcode.autos;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -36,17 +37,16 @@ import org.openftc.easyopencv.OpenCvCameraRotation;
 
 import java.util.ArrayList;
 
-@TeleOp
+@Autonomous(name = "Park", group = "Autos")
 public class Park extends LinearOpMode {
     OpenCvCamera camera;
     AprilTagDetectionPipeline aprilTagDetectionPipeline;
 
     // Setup motors
-    Config config = new Config(telemetry, hardwareMap, gamepad1, gamepad2);
-    DcMotor leftFrontDrive = config.hardwareMap.get(DcMotor.class, Config.LEFT_FRONT_DRIVE);
-    DcMotor rightFrontDrive = config.hardwareMap.get(DcMotor.class, Config.RIGHT_FRONT_DRIVE);
-    DcMotor leftBackDrive = config.hardwareMap.get(DcMotor.class, Config.LEFT_BACK_DRIVE);
-    DcMotor rightBackDrive = config.hardwareMap.get(DcMotor.class, Config.RIGHT_BACK_DRIVE);
+    DcMotor leftFrontDrive = hardwareMap.get(DcMotor.class, "leftFrontDrive");
+    DcMotor rightFrontDrive = hardwareMap.get(DcMotor.class, "rightFrontDrive");
+    DcMotor leftBackDrive = hardwareMap.get(DcMotor.class, "leftBackDrive");
+    DcMotor rightBackDrive = hardwareMap.get(DcMotor.class, "rightBackDrive");
 
     static final double FEET_PER_METER = 3.28084;
 
