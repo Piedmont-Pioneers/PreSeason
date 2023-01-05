@@ -42,11 +42,10 @@ public class Park extends LinearOpMode {
     OpenCvCamera camera;
     AprilTagDetectionPipeline aprilTagDetectionPipeline;
 
-    // Setup motors
-    DcMotor leftFrontDrive = hardwareMap.get(DcMotor.class, "leftFrontDrive");
-    DcMotor rightFrontDrive = hardwareMap.get(DcMotor.class, "rightFrontDrive");
-    DcMotor leftBackDrive = hardwareMap.get(DcMotor.class, "leftBackDrive");
-    DcMotor rightBackDrive = hardwareMap.get(DcMotor.class, "rightBackDrive");
+    DcMotor rightBackDrive = null;
+    DcMotor leftBackDrive = null;
+    DcMotor rightFrontDrive = null;
+    DcMotor leftFrontDrive = null;
 
     static final double FEET_PER_METER = 3.28084;
 
@@ -72,6 +71,18 @@ public class Park extends LinearOpMode {
     @Override
     public void runOpMode()
     {
+        // Setup motors
+        leftFrontDrive = hardwareMap.get(DcMotor.class, "leftFrontDrive");
+        rightFrontDrive = hardwareMap.get(DcMotor.class, "rightFrontDrive");
+        leftBackDrive = hardwareMap.get(DcMotor.class, "leftBackDrive");
+        rightBackDrive = hardwareMap.get(DcMotor.class, "rightBackDrive");
+
+        leftFrontDrive.setDirection(DcMotor.Direction.REVERSE);
+        leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
+        rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
+
+
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         camera = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
         aprilTagDetectionPipeline = new AprilTagDetectionPipeline(tagsize, fx, fy, cx, cy);
@@ -193,9 +204,6 @@ public class Park extends LinearOpMode {
             moveRight();
         }
 
-        // TODO: REMOVE THIS
-        /* You wouldn't have this in your autonomous, this is just to prevent the sample from ending */
-        while (opModeIsActive()) {sleep(20);}
     }
 
     void tagToTelemetry(AprilTagDetection detection)
@@ -216,12 +224,13 @@ public class Park extends LinearOpMode {
         leftBackDrive.setPower(1);
         rightBackDrive.setPower(-1);
 
-        sleep(1000);
+        sleep(500);
 
         leftFrontDrive.setPower(0);
         rightFrontDrive.setPower(0);
         leftBackDrive.setPower(0);
         rightBackDrive.setPower(0);
+        sleep(10);
     }
 
     private void moveRight() {
@@ -230,12 +239,14 @@ public class Park extends LinearOpMode {
         leftBackDrive.setPower(-1);
         rightBackDrive.setPower(1);
 
-        sleep(1000);
+        sleep(500);
 
         leftFrontDrive.setPower(0);
         rightFrontDrive.setPower(0);
         leftBackDrive.setPower(0);
         rightBackDrive.setPower(0);
+
+        sleep(10);
     }
 
     private void moveForward() {
@@ -244,11 +255,12 @@ public class Park extends LinearOpMode {
         leftBackDrive.setPower(1);
         rightBackDrive.setPower(1);
 
-        sleep(1000);
+        sleep(500);
 
         leftFrontDrive.setPower(0);
         rightFrontDrive.setPower(0);
         leftBackDrive.setPower(0);
         rightBackDrive.setPower(0);
+        sleep(30);
     }
 }
