@@ -78,8 +78,8 @@ public class Park extends LinearOpMode {
         rightBackDrive = hardwareMap.get(DcMotor.class, "rightBackDrive");
 
         leftFrontDrive.setDirection(DcMotor.Direction.REVERSE);
-        leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
+        leftBackDrive.setDirection(DcMotor.Direction.FORWARD);
+        rightFrontDrive.setDirection(DcMotor.Direction.REVERSE);
         rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
 
 
@@ -224,7 +224,7 @@ public class Park extends LinearOpMode {
         leftBackDrive.setPower(1);
         rightBackDrive.setPower(-1);
 
-        sleep(500);
+        sleep(900);
 
         leftFrontDrive.setPower(0);
         rightFrontDrive.setPower(0);
@@ -239,7 +239,7 @@ public class Park extends LinearOpMode {
         leftBackDrive.setPower(-1);
         rightBackDrive.setPower(1);
 
-        sleep(500);
+        sleep(900);
 
         leftFrontDrive.setPower(0);
         rightFrontDrive.setPower(0);
