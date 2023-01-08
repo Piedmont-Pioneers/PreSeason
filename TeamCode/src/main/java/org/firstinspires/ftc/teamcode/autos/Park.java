@@ -219,34 +219,34 @@ public class Park extends LinearOpMode {
 
 
     private void moveLeft() {
-        leftFrontDrive.setPower(-1);
-        rightFrontDrive.setPower(1);
-        leftBackDrive.setPower(1);
-        rightBackDrive.setPower(-1);
+        leftFrontDrive.setPower(-0.5);
+        rightFrontDrive.setPower(0.5);
+        leftBackDrive.setPower(0.5);
+        rightBackDrive.setPower(-0.5);
 
-        sleep(900);
+        sleep(1900);
 
         leftFrontDrive.setPower(0);
         rightFrontDrive.setPower(0);
         leftBackDrive.setPower(0);
         rightBackDrive.setPower(0);
-        sleep(10);
+        sleep(20);
     }
 
     private void moveRight() {
-        leftFrontDrive.setPower(1);
-        rightFrontDrive.setPower(-1);
-        leftBackDrive.setPower(-1);
-        rightBackDrive.setPower(1);
+        leftFrontDrive.setPower(0.5);
+        rightFrontDrive.setPower(-0.5);
+        leftBackDrive.setPower(-0.5);
+        rightBackDrive.setPower(0.5);
 
-        sleep(900);
+        sleep(1900);
 
         leftFrontDrive.setPower(0);
         rightFrontDrive.setPower(0);
         leftBackDrive.setPower(0);
         rightBackDrive.setPower(0);
 
-        sleep(10);
+        sleep(20);
     }
 
     private void moveForward() {
