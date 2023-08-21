@@ -20,7 +20,13 @@ public class TestMotor implements SubSystem {
 
     @Override
     public void init() {
-
+        leftFrontDrive = config.hardwareMap.get(DcMotor.class, Config.LEFT_FRONT_DRIVE);
+        rightFrontDrive = config.hardwareMap.get(DcMotor.class, Config.RIGHT_FRONT_DRIVE);
+        leftBackDrive = config.hardwareMap.get(DcMotor.class, Config.LEFT_BACK_DRIVE);
+        rightBackDrive = config.hardwareMap.get(DcMotor.class, Config.RIGHT_BACK_DRIVE);
+        intake = config.hardwareMap.get(DcMotor.class, Config.INTAKE_MOTOR);
+        flywheel = config.hardwareMap.get(DcMotor.class, Config.FLYWHEEL_MOTOR);
+        trigger= config.hardwareMap.get(Servo.class, Config.TRIGGER_SERVO);
     }
 
     @Override
