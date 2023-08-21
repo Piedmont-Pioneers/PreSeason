@@ -17,11 +17,9 @@ public class Config {
     public static final String RIGHT_BACK_DRIVE = "rightBackDrive";
     public static final String LEFT_FRONT_DRIVE = "leftFrontDrive";
     public static final String LEFT_BACK_DRIVE = "leftBackDrive";
-
-    public static final String ARM_MOTOR = "armMotor";
-
-    public static final String CLAW_SERVO = "clawServo";
-
+    public static final String INTAKE_MOTOR = "intakeMotor";
+    public static final String TRIGGER_SERVO = "triggerServo";
+    public static final String FLYWHEEL_MOTOR = "flywheelMotor";
     private ElapsedTime runtime = new ElapsedTime();
 
     // Constructor
