@@ -21,7 +21,7 @@ public class Shooter implements SubSystem {
         trigger = config.hardwareMap.get(Servo.class, Config.SHOOTER_SERVO);
         flywheel = config.hardwareMap.get(DcMotor.class, Config.FLYWHEEL_MOTOR);
 
-        // We might need to change the value below to FORWARD,
+        // We might need to change the value below to FORWARD
         // depending on how the motor is mounted.
         flywheel.setDirection(DcMotor.Direction.REVERSE);
         trigger.
