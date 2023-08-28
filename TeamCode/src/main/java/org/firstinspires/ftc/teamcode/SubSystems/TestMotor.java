@@ -27,7 +27,7 @@ public class TestMotor implements SubSystem {
         rightBackDrive = config.hardwareMap.get(DcMotor.class, Config.RIGHT_BACK_DRIVE);
         intake = config.hardwareMap.get(DcMotor.class, Config.INTAKE_MOTOR);
         flywheel = config.hardwareMap.get(DcMotor.class, Config.FLYWHEEL_MOTOR);
-        trigger= config.hardwareMap.get(Servo.class, Config.TRIGGER_SERVO);
+        trigger= config.hardwareMap.get(Servo.class, Config.TRIGGER_MOTOR);
     }
 
     @Override
