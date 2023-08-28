@@ -1,19 +1,17 @@
 package org.firstinspires.ftc.teamcode.SubSystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.Config;
 
-public class Drive implements SubSystem {
-    private Config config;
+public class Drive extends SubSystem {
     private DcMotor leftFrontDrive = null;
     private DcMotor leftBackDrive = null;
     private DcMotor rightFrontDrive = null;
     private DcMotor rightBackDrive = null;
 
     public Drive(Config cfg) {
-        this.config = cfg;
+        super(cfg);
     }
 
     public void init() {
@@ -52,7 +50,7 @@ public class Drive implements SubSystem {
 
         // Normalize the values so no wheel power exceeds 100%
         // This ensures that the robot maintains the desired motion.
-        double max = 0.0;
+        double max;
         max = Math.max(Math.abs(leftFrontPower), Math.abs(rightFrontPower));
         max = Math.max(max, Math.abs(leftBackPower));
         max = Math.max(max, Math.abs(rightBackPower));

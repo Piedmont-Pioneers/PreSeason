@@ -1,12 +1,10 @@
 package org.firstinspires.ftc.teamcode.SubSystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.Config;
 
-public class Shooter implements SubSystem {
-    private final Config config;
+public class Shooter extends SubSystem {
     private DcMotor turntable;
     private DcMotor trigger;
     private DcMotor flywheel;
@@ -15,9 +13,9 @@ public class Shooter implements SubSystem {
     private double turnTableClockWise;
     private double triggerOn;
     private double flywheelOn;
-    public Shooter(Config config) {
-        this.config = config;
 
+    public Shooter(Config config) {
+        super(config);
     }
 
     @Override

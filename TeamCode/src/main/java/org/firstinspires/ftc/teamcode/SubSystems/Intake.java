@@ -4,14 +4,14 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.Config;
 
-public class Intake implements SubSystem {
-    private Config config;
+public class Intake extends SubSystem {
 
     private DcMotor intake;
 
     public Intake(Config config) {
-        this.config = config;
+        super(config);
     }
+
     @Override
     public void init() {
         intake = config.hardwareMap.get(DcMotor.class, Config.INTAKE_MOTOR);
