@@ -1,8 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
-import org.firstinspires.ftc.teamcode.SubSystems.Drive;
-import org.firstinspires.ftc.teamcode.SubSystems.Shooter;
-import org.firstinspires.ftc.teamcode.SubSystems.SubSystem;
+import org.firstinspires.ftc.teamcode.SubSystems.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,8 +14,8 @@ public class ManualRobot {
     public ManualRobot(Config cfg) {
         config = cfg;
         subSystems.add(new Drive(config));
-
         subSystems.add(new Shooter(config));
+        subSystems.add(new Intake(config));
     }
 
     //
