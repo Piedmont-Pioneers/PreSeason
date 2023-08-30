@@ -17,9 +17,40 @@ public abstract class Auto extends LinearOpMode {
         rightFrontDrive = hardwareMap.get(DcMotor.class, Config.RIGHT_FRONT_DRIVE);
         rightBackDrive = hardwareMap.get(DcMotor.class, Config.RIGHT_BACK_DRIVE);
     }
-
-
-    public void moveForward(long milliseconds) {
+    public void moveBackward(long milliseconds) {
+        leftFrontDrive.setPower(-1);
+        leftBackDrive.setPower(-1);
+        rightFrontDrive.setPower(-1);
+        rightBackDrive.setPower(-1);
+        sleep(milliseconds);
+        leftFrontDrive.setPower(0);
+        leftBackDrive.setPower(0);
+        rightFrontDrive.setPower(0);
+        rightBackDrive.setPower(0);
+    }
+    public void strafeRight(long milliseconds) {
+        leftFrontDrive.setPower(1);
+        leftBackDrive.setPower(-1);
+        rightFrontDrive.setPower(-1);
+        rightBackDrive.setPower(1);
+        sleep(milliseconds);
+        leftFrontDrive.setPower(0);
+        leftBackDrive.setPower(0);
+        rightFrontDrive.setPower(0);
+        rightBackDrive.setPower(0);
+    }
+    public void strafeLeft(long milliseconds) {
+        leftFrontDrive.setPower(-1);
+        leftBackDrive.setPower(1);
+        rightFrontDrive.setPower(1);
+        rightBackDrive.setPower(-1);
+        sleep(milliseconds);
+        leftFrontDrive.setPower(0);
+        leftBackDrive.setPower(0);
+        rightFrontDrive.setPower(0);
+        rightBackDrive.setPower(0);
+    }
+        public void moveForward(long milliseconds) {
         leftFrontDrive.setPower(1);
         leftBackDrive.setPower(1);
         rightFrontDrive.setPower(1);
