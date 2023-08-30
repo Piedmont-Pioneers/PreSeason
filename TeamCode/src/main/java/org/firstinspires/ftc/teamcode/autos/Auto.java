@@ -10,14 +10,22 @@ public abstract class Auto extends LinearOpMode {
     protected DcMotor leftBackDrive;
     protected DcMotor rightFrontDrive;
     protected DcMotor rightBackDrive;
+    protected DcMotor turnTable;
+    protected DcMotor triggerMotor;
+    protected DcMotor flywheelMotor;
+
+
 
     protected void initMotors() {
         leftFrontDrive = hardwareMap.get(DcMotor.class, Config.LEFT_FRONT_DRIVE);
         leftBackDrive = hardwareMap.get(DcMotor.class, Config.LEFT_BACK_DRIVE);
         rightFrontDrive = hardwareMap.get(DcMotor.class, Config.RIGHT_FRONT_DRIVE);
         rightBackDrive = hardwareMap.get(DcMotor.class, Config.RIGHT_BACK_DRIVE);
+        triggerMotor = hardwareMap.get(DcMotor.class, Config.TRIGGER_MOTOR);
+        flywheelMotor = hardwareMap.get(DcMotor.class, Config.FLYWHEEL_MOTOR);
+        turnTable = hardwareMap.get(DcMotor.class, Config. TURN_TABLE)
     }
-    public void moveBackward(long milliseconds) {
+        public void moveBackward(long milliseconds) {
         leftFrontDrive.setPower(-1);
         leftBackDrive.setPower(-1);
         rightFrontDrive.setPower(-1);
@@ -28,7 +36,7 @@ public abstract class Auto extends LinearOpMode {
         rightFrontDrive.setPower(0);
         rightBackDrive.setPower(0);
     }
-    public void strafeRight(long milliseconds) {
+        public void strafeRight(long milliseconds) {
         leftFrontDrive.setPower(1);
         leftBackDrive.setPower(-1);
         rightFrontDrive.setPower(-1);
@@ -39,7 +47,7 @@ public abstract class Auto extends LinearOpMode {
         rightFrontDrive.setPower(0);
         rightBackDrive.setPower(0);
     }
-    public void strafeLeft(long milliseconds) {
+        public void strafeLeft(long milliseconds) {
         leftFrontDrive.setPower(-1);
         leftBackDrive.setPower(1);
         rightFrontDrive.setPower(1);
