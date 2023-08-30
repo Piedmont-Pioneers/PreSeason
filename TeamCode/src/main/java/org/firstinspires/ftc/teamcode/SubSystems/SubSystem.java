@@ -10,5 +10,7 @@ public abstract class SubSystem {
     }
     public abstract void init();
     public abstract void update();
-
+    public Config getConfig() {
+        return config;
+    }
 }
