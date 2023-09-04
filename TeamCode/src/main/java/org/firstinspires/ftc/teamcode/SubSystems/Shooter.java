@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.Config;
 
+// This subsystem is for the entire shooter mechanism including the turntable
 public class Shooter extends SubSystem {
     private DcMotor turntable;
     private DcMotor trigger;

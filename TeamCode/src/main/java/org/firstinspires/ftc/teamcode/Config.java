@@ -7,11 +7,12 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class Config {
-    public Telemetry telemetry = null;
-    public HardwareMap hardwareMap = null;
-    public Gamepad gamePad1 = null;
-    public Gamepad gamePad2 = null;
+    public Telemetry telemetry;
+    public HardwareMap hardwareMap;
+    public Gamepad gamePad1;
+    public Gamepad gamePad2;
 
+    // Stores the hardwareMap names as constants
     // Drive system
     public static final String RIGHT_FRONT_DRIVE = "rightFrontDrive";
     public static final String RIGHT_BACK_DRIVE = "rightBackDrive";
@@ -32,6 +33,7 @@ public class Config {
         this.gamePad2 = gmp2;
     }
 
+    // Do Not Change
     void updateTelemetry() {
         telemetry.addData("Status", "Run Time: " + runtime.toString());
 
