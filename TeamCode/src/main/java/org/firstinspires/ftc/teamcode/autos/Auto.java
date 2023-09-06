@@ -73,6 +73,6 @@ public abstract class Auto extends LinearOpMode {
         leftBackDrive.setPower(0);
         rightFrontDrive.setPower(0);
         rightBackDrive.setPower(0);
-    }
+    }//test
 
 }
