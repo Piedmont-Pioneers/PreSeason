@@ -12,13 +12,17 @@ public class TeleOpManual extends LinearOpMode {
     @Override
     public void runOpMode() {
 
+        // Create the config used in all subsystems
         config = new Config(telemetry, hardwareMap, gamepad1, gamepad2);
+        // Create the Manual Robot and register the subsystems
         manualRobot = new ManualRobot(config);
-
+        // Initialize all subsystems
         manualRobot.init();
         waitForStart();
 
+        // Main Loop
         while (opModeIsActive()) {
+            // Update everything
             config.updateTelemetry();
 
             // runs each sub-system once
