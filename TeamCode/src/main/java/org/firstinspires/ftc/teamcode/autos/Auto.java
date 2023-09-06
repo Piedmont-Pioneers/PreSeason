@@ -21,9 +21,14 @@ public abstract class Auto extends LinearOpMode {
         leftBackDrive = hardwareMap.get(DcMotor.class, Config.LEFT_BACK_DRIVE);
         rightFrontDrive = hardwareMap.get(DcMotor.class, Config.RIGHT_FRONT_DRIVE);
         rightBackDrive = hardwareMap.get(DcMotor.class, Config.RIGHT_BACK_DRIVE);
-        triggerMotor = hardwareMap.get(DcMotor.class, Config.TRIGGER_MOTOR);
         flywheelMotor = hardwareMap.get(DcMotor.class, Config.FLYWHEEL_MOTOR);
-        turnTable = hardwareMap.get(DcMotor.class, Config. TURN_TABLE)
+        turnTable = hardwareMap.get(DcMotor.class, Config. TURN_TABLE);
+    }
+    public void spinTurnTable() {
+        turnTable.setPower(1);
+    }
+    public void runFlywheel() {
+        flywheelMotor.setPower(-1);
     }
         public void moveBackward(long milliseconds) {
         leftFrontDrive.setPower(-1);
