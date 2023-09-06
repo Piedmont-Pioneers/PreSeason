@@ -6,14 +6,14 @@ public class PreSeasonAuto extends Auto{
         initMotors();
 
         waitForStart();
-        // TODO: Add movement times
-        moveForward();
-        strafeRight();
-        moveForward();
-        strafeLeft();
-        moveForward();
-        strafeRight();
-        moveForward();
+        // TODO: Add movement times. Uncomment
+//        moveForward();
+//        strafeRight();
+//        moveForward();
+//        strafeLeft();
+//        moveForward();
+//        strafeRight();
+//        moveForward();
 
 
     }
